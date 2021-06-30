@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <title>Logica de Progamação Javascript</title>
+        <meta charset=" uft-8">
+        <meta name="author" content="Eduardo">
+        <meta name=" description" content=" primeiro tetste ">
+        <meta name=" keywords" content="base de tudo">
+    </head>
+    <boby>
+        <h1>Logica de Progamação Javascript</h1>
+      <script>
+
+        //fazer jogador1 digitar um numero
+          var jogador1 = prompt("número do jogador1");
+          jogador1 = parseFloat(jogador1);
+
+        //fazer jogador2 digitar outro numero
+          var jogador2 = prompt("número do jogador2");
+          jogador2 = parseFloat(jogador2);
+
+        //se forem iguais, mostrar mensagem 'empate'
+          if(jogador1 == jogador2){
+            alert("vocês empataram" ); 
+          } else{
+
+             //sortear um numero entre 0 e 1
+
+            var nsorteado = parseInt(Math.random() * 2)
+                alert("nsorteado" + nsorteado )
+
+        // se o numero sorteado for 0, ganha quem escolher o numero MENOR
+        
+                   if(nsorteado === 0 && jogador1 < jogador2 || 
+                    nsorteado === 1 && jogador1 > jogador2 )
+                    alert("jogador 1 ganhou")               
+                    
+                   else{
+                       alert("jogaor 2 ganhou")
+                   }
+                   
+                }
+          
+      </script>
+    </boby>
+
+
+
+</html>

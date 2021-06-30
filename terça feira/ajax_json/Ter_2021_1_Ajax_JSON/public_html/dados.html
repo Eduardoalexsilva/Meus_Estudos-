@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            TABLE {border:5px; border-style: solid}
+            TD {border:1px; border-style: solid; width: 100% }
+        </style>
+    </head>
+    <body>
+
+        <h2>Uso do XMLHttpRequest com JSON.</h2>
+        <h3>FILMES</h3>
+        <div id="dado"></div>
+        <script>
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var valor = "<table>";
+                    valor += "<tr><td>Título</td><td>Ano</td><td>Genero</td></tr>";
+
+                    myObj = JSON.parse(this.responseText);
+
+                    for (i in myObj.filme) {
+                        valor += "<tr>";
+                        valor += "<td>" + myObj.filme[i].titulo + "</td>";
+                        valor += "<td>" + myObj.filme[i].ano + "</td>";
+                        valor += "<td>" + myObj.filme[i].genero + "</td>";
+                        valor += "</tr>";
+                    }
+                    valor += "</table>";
+                    document.getElementById("dado").innerHTML = valor;
+                }
+            };
+            xmlhttp.open("GET", "dados.json", true);
+            xmlhttp.send();
+        </script>
+        <p>Abrir o arquivo <a href="dados.json" target="_blank">json_dados.json</a></p>
+    </body>
+</html>

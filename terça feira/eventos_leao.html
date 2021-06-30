@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tópico 7</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script type="text/javascript">
+            function alterar_Bau(x){
+                var img_bau;
+                if (x == 1)
+                    img_bau = "https://exame.com/wp-content/uploads/2017/03/sd_0203.jpg";
+                else 
+                    img_bau = "https://img.estadao.com.br/thumbs/640/resources/jpg/8/7/1559240615578.jpg"
+ 
+                document.getElementById("bau").src = img_bau;
+            }            
+        </script>
+        <img src="https://img.estadao.com.br/thumbs/640/resources/jpg/8/7/1559240615578.jpg" 
+        id="bau" onMouseOver="alterar_Bau(1)" onMouseOut="alterar_Bau(2)" style="width: 40%" >
+ 
+    </body>
+</html>

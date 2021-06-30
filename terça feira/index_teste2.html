@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>usuario coloca o numero</title>
+        <meta charset="UTF-8">
+    </head>   
+        <body> 
+            <p>Entre com um número entre 1 e 10 e clique em OK:</p>
+
+        <input id="id1" type="number" min="1" max="100" required>
+        <button onclick="funcao()">OK</button>
+        
+        <p id="demo"></p>
+        <hr>
+        <pre>
+            Valor informado:   <span id="res1"></span>
+            Valor ao quadrado: <span id="res2"></span>
+        </pre>
+        <script>
+            function funcao() {
+                var inpObj = document.getElementById("id1");
+                if (inpObj.checkValidity() == false) {
+                    document.getElementById("demo").innerHTML = inpObj.validationMessage;
+                } else {
+                    document.getElementById("demo").innerHTML = "Entrada OK";
+                    var v1 = document.getElementById("id1").value;
+                    document.getElementById("res1").innerHTML = v1;
+       
+                    document.getElementById("res2").innerHTML = v1 * v1;
+                }
+            }
+        </script>
+
+    </body>
+</html>
+            
+
+
+
+
+
+        </body>
+</html>

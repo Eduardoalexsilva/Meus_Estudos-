@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            #topo {
+                background-color: burlywood;
+                width: 400px;
+                text-align: center
+            };
+            #corpo {
+                width: 400px;
+                text-align: center
+            };
+        </style>
+        <title>Funções, Estruturas de Laços e Condicionais</title>
+        <meta charset="UTF-8">
+        <script language="javascript">
+            function inserir() {
+                var oNota1 = document.getElementById('nota1');
+                var oNota2 = document.getElementById('nota2');
+                if (oNota1.value == "" || oNota2.value == "")
+                {
+                    alert("As notas devem ser preenchidas!");
+                    return false;
+                }
+                if (oNota1.checkValidity() == false) {
+                    alert(oNota1.validationMessage);
+                    return false;
+                }
+                if (oNota2.checkValidity() == false) {
+                    alert(oNota2.validationMessage);
+                    return false;
+                }
+                // Capturar a referência da tabela pelo ID:
+                var tabela = document.getElementById("tabDados");
+                // Capturar a quantidade de linhas já existentes:
+                var nLinhas = tabela.rows.length;
+                // Capturar a quantidade de colunas:
+                var nColunas = tabela.rows[nLinhas - 1].cells.length;
+                // Inserir nova linha:
+                var novaLinha = tabela.insertRow(nLinhas);
+                // Fazer laço para inserir colunas:
+                for (var j = 0; j < nColunas; j++) {
+                    // Insere uma coluna na nova linha
+                    newCell = novaLinha.insertCell(j);
+                    // Inserir conteúdo para as colunas:
+                    switch (j) {
+                        case 0:
+                            newCell.innerHTML = document.getElementById("nome").value;
+                            break;
+                        case 1:
+                            newCell.innerHTML = document.getElementById('nota1').value;
+                            break;
+                        case 2:
+                            newCell.innerHTML = document.getElementById('nota2').value;
+                            break;
+                    }
+                }
+            }
+            function mediaNota1() {
+                var tot = 0.0;
+                // Capturar a referência da tabela pelo ID:
+                var tabela = document.getElementById("tabDados");
+                var linhas = tabela.rows.length;
+                // Iniciar de 1 porque a linha 0 é o cabeçalho da tabela:
+                for (var i = 1; i < linhas; i++)
+                {
+                    var lin = tabela.rows[i]; // Linha corrente.
+                    var col = lin.childNodes[1]; // Nota 1.
+                    tot += eval(col.innerHTML); // Obter conteúdo.
+ 
+                }
+                notas = linhas - 1;
+                alert(
+                        "Somatória Nota 1: " + tot + "\n" +
+                        "Quantidade de notas: " + notas + "\n" +
+                        "Media da Nota 1: " + (tot / notas)
+ 
+                        );
+            }
+        </script>
+    </head>
+    <body>
+    <center>
+        <div id="topo">
+            <form name="frmDados">
+                <table border="0" align="center" >
+                    <tr>
+                        <td>Nome:</td>
+                        <td align="left">
+                            <input type="text" id="nome" size="40">
+                        </td>
+                    </tr>
+                    <tr>
+ 
+                        <td>Nota 1:</td><td align="left">
+                            <input type ="number" id="nota1" min="0" max="10">
+                        </td>
+                    </tr>
+                    <tr>
+ 
+                        <td>Nota 2:</td><td align="left">
+                            <input type ="number" id="nota2" min="0" max="10">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" value="Inserir Linha"
+                                   onclick="inserir()" />
+                        </td>
+ 
+                        <td align="left">
+ 
+                            <input type="button" value="Media Nota 1"
+                                   onclick="mediaNota1()" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div id="corpo">
+            <table id="tabDados" border="1" align="center" >
+                <tr>
+                    <th>Nome</th>
+                    <th>Nota 1</th>
+                    <th>Nota 2</th>
+                </tr>
+            </table>
+        </div>
+    </center>
+</body>
+</html>

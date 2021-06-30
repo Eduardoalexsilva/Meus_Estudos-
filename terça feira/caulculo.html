@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <script>
+            var aluno = {
+                nome: "Antonio Andrade",
+                nota1: 10,
+                nota2: 8,
+                nota3: 6,
+                media: function () {
+                    var med, ret;
+                    med = (this.nota1 + this.nota2 + this.nota3) / 3;
+                    ret = "O aluno " + this.nome + " obteve média: " + med;
+                    ret += (med < 6) ? 'reprovado' : 'aprovado';
+                    //if (med < 6) {
+                    //    ret += " reprovado";
+                   // } else {
+                    //    ret += " aprovado";
+                  //  }
+
+                    return ret;
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <div>Cálculo de Média</div>
+        <p>
+            <script>
+                document.write(aluno.media());
+            </script>
+        </p>
+    </body>
+</html>

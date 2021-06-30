@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tópico 7</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div>Programação de Interfaces (aula 7)</div>
+        <script type="text/javascript">
+            
+            var n1 = parseInt(prompt("Informe primeira nota:", 0));
+            document.write("<br>Primeira nota: ", + n1);
+            var n2 = parseInt(prompt("Informe segunda nota:", 0));
+            document.write("<br>Segunda nota: ", + n2);
+            var n3 = parseInt(prompt("Informe terceira nota:", 0));
+            document.write("<br>Terceira nota: ", + n3);
+        
+            var soma = n1+n2+n3;
+            var med = soma/3;
+
+            document.write("<hr>Média do aluno: ", + med);
+
+            if(med>=6){
+                document.write("<hr>Aluno aprovado");
+            }else{
+                document.write("<hr>Aluno reprovado");
+            }
+             </script>
+    </body>
+</html>
